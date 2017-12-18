@@ -21,12 +21,11 @@ namespace WPFPageSwitch
         public SeriesCollection SeriesCollection { get; set; }
 
         public MainMenu()
-		{
-            
+		{            
 			InitializeComponent();
             SeriesCollection = new SeriesCollection();
 
-            Graph();
+            Graph(1);
         }
 
 		private void newGameButton_Click(object sender, System.Windows.RoutedEventArgs e)
@@ -36,16 +35,17 @@ namespace WPFPageSwitch
 
 		private void loadGameButton_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
-			Switcher.Switch(new LoadGame());
-		}
+            float count = float.Parse(Counter.Text);
+            Graph(count);
+        }
         
-        private void Graph()
+        private void Graph(float count)
         {
-            SeriesCollection.Clear();
+            //SeriesCollection.Clear();
             List<double> list = new List<double>();
             for (int i = 0; i < 100; i++)
             {
-                list.Add(Math.Sin(i/10f));
+                list.Add(count * Math.Sin(i/10f));
             }
             ChartValues<double> chart = new ChartValues<double>(list);
             LineSeries ls = new LineSeries();
@@ -62,17 +62,6 @@ namespace WPFPageSwitch
         {
             throw new NotImplementedException();
         }
-
-        private void loginTextBlock_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-        	Switcher.Switch(new Login());
-        }
-
-        private void registerTextBlock_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-        	Switcher.Switch(new Register());
-        }
-        #endregion
-		
-	}
+        #endregion        
+    }
 }

@@ -17,6 +17,8 @@ namespace WPFPageSwitch
 	{
         private List<Question> questions = new List<Question>();
 
+        private List<List<RadioButton>> radioButtonGroup = new List<List<RadioButton>>();
+
 		public Gameplay()
 		{
 			InitializeComponent();
@@ -46,7 +48,7 @@ namespace WPFPageSwitch
                         questions.Add(question);
                     }
                 }
-            }            
+            }
         }
 
         #region ISwitchable Members
@@ -71,12 +73,14 @@ namespace WPFPageSwitch
             foreach (var question in questions)
             {
                 TextBlock txt = new TextBlock();
-                txt.Text = question.Name;
+                txt.Text = (questionNumber + 1) + " " + question.Name;
                 txt.Margin = new Thickness(50, 0, 0, 0);// top + (topposition * questionNumber), 0, 0);
                 txt.HorizontalAlignment = HorizontalAlignment.Left;
                 txt.TextWrapping = TextWrapping.Wrap;
                 txt.VerticalAlignment = VerticalAlignment.Top;
                 myStackPanel.Children.Add(txt);
+
+                List<RadioButton> radioButtons = new List<RadioButton>();
 
                 foreach (var item in question.Answer)
                 {
@@ -84,14 +88,15 @@ namespace WPFPageSwitch
                     radioButton.GroupName = question.Name;
                     radioButton.Content = item;
                     radioButton.Margin = new Thickness(400, 0, 0, 0);// top + (topposition * questionNumber), 0, 0);
-                    myStackPanel.Children.Add(radioButton);
-                    questionNumber++;
+                    myStackPanel.Children.Add(radioButton);                    
+                    radioButtons.Add(radioButton);
                 }
 
                 Separator separator = new Separator();
                 separator.Height = 3;
                 myStackPanel.Children.Add(separator);
                 questionNumber++;
+                radioButtonGroup.Add(radioButtons);
             }
 
             scrollViewer.Content = myStackPanel;
@@ -99,7 +104,33 @@ namespace WPFPageSwitch
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            Switcher.Switch(new LoadGame());
+            int questionsCount = questions.Count;
+            int questionsTrue = 0;
+
+            for (int i = 0; i < questions.Count; i++)
+            {
+                for (int j = 0; j < radioButtonGroup[i].Count; j++)
+                {
+                    if (radioButtonGroup[i][j].IsChecked == true)
+                    {
+                        if (questions[i].CorrectAnswer == j)
+                        {
+                            questionsTrue++;
+                        }
+                    }
+                }                
+            }
+            bool won = false;
+            string text = "";
+            if (questionsTrue / questionsCount >= 0.8f)
+            {
+                won = true;
+                text = "Имя: " + User.Name + " Группа: " + User.Group + "\nПравильных ответов:\n " + questionsTrue;
+            }
+            else
+                text = "Имя: " + User.Name + " Группа: " + User.Group + "\nПравильных ответов:\n " + questionsTrue + "\n<color=red>Вы не прошли тест!</color>";
+
+            Switcher.Switch(new LoadGame(won, text));
         }
     }
 }

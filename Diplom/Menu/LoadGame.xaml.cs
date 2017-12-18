@@ -12,11 +12,16 @@ namespace WPFPageSwitch
 {
 	public partial class LoadGame : UserControl, ISwitchable
 	{
-		public LoadGame()
+		public LoadGame(bool end, string msg)
 		{
-			// Required to initialize variables
 			InitializeComponent();
-		}
+            MsgText.Text = msg;
+            if (end)            
+                NextBnt.IsEnabled = true;            
+            else
+                NextBnt.IsEnabled = false;
+
+        }
 
         #region ISwitchable Members
         public void UtilizeState(object state)

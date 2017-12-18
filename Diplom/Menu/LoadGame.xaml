@@ -8,8 +8,8 @@
 	d:DesignWidth="640" d:DesignHeight="480" Width="800" Height="600">
 
 	<Grid x:Name="LayoutRoot" Background="White">
-		<TextBlock Height="40" HorizontalAlignment="Left" Margin="294.035,164.607,0,0" VerticalAlignment="Top" Width="200" Text="Итоги" TextWrapping="Wrap" FontSize="21.333"/>
+		<TextBlock x:Name="MsgText" Height="386" Margin="20,20,20,0" VerticalAlignment="Top" Text="Итоги" TextWrapping="Wrap" FontSize="21.333" TextAlignment="Center"/>
 		<Button Height="25" Margin="289.035,0,410.965,100" VerticalAlignment="Bottom" Content="Повторить" Click="Button_Click"/>
-		<Button Height="25" Margin="394.035,0,305.965,100" VerticalAlignment="Bottom" Content="Графики" Click="Button_Click_1"/>
+		<Button x:Name="NextBnt" Height="25" Margin="394.035,0,305.965,100" VerticalAlignment="Bottom" Content="Далее" Click="Button_Click_1"/>
 	</Grid>
 </UserControl>

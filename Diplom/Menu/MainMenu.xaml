@@ -8,8 +8,8 @@
 	x:Class="WPFPageSwitch.MainMenu"
 	d:DesignWidth="800" d:DesignHeight="600">
 	<Grid x:Name="mainMenuLayoutRoot" Background="White">
-		<Button x:Name="newGameButton" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="200" Content="New Game" Height="40" FontSize="21.333" Click="newGameButton_Click"/>
-		<Button x:Name="loadGameButton" Height="40" HorizontalAlignment="Left" Margin="590,0,0,10" VerticalAlignment="Bottom" Width="200" FontSize="21.333" Content="Load Game" Click="loadGameButton_Click"/>
+		<Button x:Name="newGameButton" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="200" Content="Начать заново" Height="40" FontSize="21.333" Click="newGameButton_Click"/>
+		<Button x:Name="loadGameButton" Height="40" HorizontalAlignment="Left" Margin="590,0,0,10" VerticalAlignment="Bottom" Width="200" FontSize="21.333" Content="Применить" Click="loadGameButton_Click"/>
 		<Border Name="GraphBorder" BorderBrush="Black" BorderThickness="1" Margin="10,10,10,60">
 			<lvc:CartesianChart x:Name="MainChart" 
                                 Series="{Binding SeriesCollection}" 
@@ -23,5 +23,7 @@
 				</lvc:CartesianChart.AxisX>
 			</lvc:CartesianChart>
 		</Border>
+		<TextBox x:Name="Counter" HorizontalAlignment="Left" Height="40" Margin="445,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="21.333" TextAlignment="Center" Text="0"/>
+		<TextBlock HorizontalAlignment="Left" Margin="308,556,0,0" TextWrapping="Wrap" Text="Умножитель:" VerticalAlignment="Top" FontSize="21.333"/>
 	</Grid>
 </UserControl>
