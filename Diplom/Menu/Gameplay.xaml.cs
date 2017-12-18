@@ -96,5 +96,10 @@ namespace WPFPageSwitch
 
             scrollViewer.Content = myStackPanel;
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new LoadGame());
+        }
     }
 }

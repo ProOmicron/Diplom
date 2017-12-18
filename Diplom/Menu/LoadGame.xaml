@@ -8,7 +8,8 @@
 	d:DesignWidth="640" d:DesignHeight="480" Width="800" Height="600">
 
 	<Grid x:Name="LayoutRoot" Background="White">
-		<TextBlock Height="40" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="200" Text="Load Game" TextWrapping="Wrap" FontSize="21.333"/>
-		<Button Height="25" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="100" Content="&lt; Back" Click="Button_Click"/>
+		<TextBlock Height="40" HorizontalAlignment="Left" Margin="294.035,164.607,0,0" VerticalAlignment="Top" Width="200" Text="Итоги" TextWrapping="Wrap" FontSize="21.333"/>
+		<Button Height="25" Margin="289.035,0,410.965,100" VerticalAlignment="Bottom" Content="Повторить" Click="Button_Click"/>
+		<Button Height="25" Margin="394.035,0,305.965,100" VerticalAlignment="Bottom" Content="Графики" Click="Button_Click_1"/>
 	</Grid>
 </UserControl>

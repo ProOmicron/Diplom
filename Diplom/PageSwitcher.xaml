@@ -1,5 +1,5 @@
 ﻿<Window x:Class="WPFPageSwitch.PageSwitcher"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Тест" Height="626" Width="806" ResizeMode="NoResize">
+    Title="Тест" Height="638" Width="816" ResizeMode="NoResize">
 </Window>

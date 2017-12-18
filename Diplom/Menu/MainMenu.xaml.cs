@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LiveCharts;
+using LiveCharts.Wpf;
+using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -15,18 +18,16 @@ namespace WPFPageSwitch
 
         //LoginWindowForm loginForm;
         //RegisterForm registerForm;
+        public SeriesCollection SeriesCollection { get; set; }
 
-		public MainMenu()
+        public MainMenu()
 		{
             
 			InitializeComponent();
+            SeriesCollection = new SeriesCollection();
 
-            //loginForm = new LoginWindowForm();
-            //registerForm = new RegisterForm();
-
-            //loginForm.SubmitClicked += new EventHandler(loginWindowForm_SubmitClicked);
-            //registerForm.SubmitClicked += new EventHandler(registerForm_SubmitClicked);
-		}
+            Graph();
+        }
 
 		private void newGameButton_Click(object sender, System.Windows.RoutedEventArgs e)
 		{
@@ -37,34 +38,25 @@ namespace WPFPageSwitch
 		{
 			Switcher.Switch(new LoadGame());
 		}
-
-		private void optionButton_Click(object sender, System.Windows.RoutedEventArgs e)
-		{
-			Switcher.Switch(new Option());
-		}
-
-        //private void ShowMessageBox(string title, string message, MessageBoxIcon icon)
-        //{
-            //MessageBoxChildWindow messageWindow =
-            //    new MessageBoxChildWindow(title, message, MessageBoxButtons.Ok, icon);
-
-            //messageWindow.Show();
-        //}
-
-        #region Event For Child Window
-        private void loginWindowForm_SubmitClicked(object sender, EventArgs e)
+        
+        private void Graph()
         {
-            //ShowMessageBox("Login Successful", "Welcome, " + loginForm.NameText, MessageBoxIcon.Information);
-
+            SeriesCollection.Clear();
+            List<double> list = new List<double>();
+            for (int i = 0; i < 100; i++)
+            {
+                list.Add(Math.Sin(i/10f));
+            }
+            ChartValues<double> chart = new ChartValues<double>(list);
+            LineSeries ls = new LineSeries();
+            ls.Title = "Дистанция вперёд";
+            ls.Values = chart;
+            ls.PointGeometry = null;
+            SeriesCollection.Add(ls);
+            DataContext = this;
         }
 
-        private void registerForm_SubmitClicked(object sender, EventArgs e)
-        {
-        }
-
-
-        #endregion
-
+        
         #region ISwitchable Members
         public void UtilizeState(object state)
         {

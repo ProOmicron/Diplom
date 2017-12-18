@@ -26,8 +26,13 @@ namespace WPFPageSwitch
 
         private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-        	Switcher.Switch(new MainMenu());
+        	Switcher.Switch(new Gameplay());
         }
         #endregion
-	}
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new MainMenu());
+        }
+    }
 }

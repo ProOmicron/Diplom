@@ -9,7 +9,8 @@
 
 	<Grid x:Name="gameplayLayoutRoot" Background="White">
 		<TextBlock Name="NameGroup" Height="30" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="760" TextWrapping="Wrap" FontSize="21.333" TextAlignment="Center"/>
-		<Button HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="100" Content="&lt; Назад" Height="25" Click="Button_Click"/>
+		<Button HorizontalAlignment="Right" Margin="0,0,120,10" VerticalAlignment="Bottom" Width="100" Content="&lt; Назад" Height="25" Click="Button_Click"/>
+		<Button HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="100" Content="Закончить >" Height="25" Click="Button_Click_1"/>
 		<Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="495" Margin="10,55,0,0" VerticalAlignment="Top" Width="780">
 			<ScrollViewer x:Name="scrollViewer" Margin="3">
 				<StackPanel x:Name="myStackPanel" HorizontalAlignment="Center" VerticalAlignment="Top" />
