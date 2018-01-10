@@ -8,22 +8,58 @@
 	x:Class="WPFPageSwitch.MainMenu"
 	d:DesignWidth="800" d:DesignHeight="600">
 	<Grid x:Name="mainMenuLayoutRoot" Background="White">
-		<Button x:Name="newGameButton" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="200" Content="Начать заново" Height="40" FontSize="21.333" Click="newGameButton_Click"/>
-		<Button x:Name="loadGameButton" Height="40" HorizontalAlignment="Left" Margin="590,0,0,10" VerticalAlignment="Bottom" Width="200" FontSize="21.333" Content="Применить" Click="loadGameButton_Click"/>
-		<Border Name="GraphBorder" BorderBrush="Black" BorderThickness="1" Margin="10,10,10,60">
+		<Button x:Name="newGameButton" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="140" Content="Начать заново" Height="20" FontSize="12" Click="newGameButton_Click"/>
+		<Button x:Name="backButton" HorizontalAlignment="Left" Margin="505,0,0,10" VerticalAlignment="Bottom" Width="140" Content="Отменить" Height="20" FontSize="12" Click="backButton_Click"/>
+		<Button x:Name="loadGameButton" Height="20" HorizontalAlignment="Left" Margin="650,0,0,10" VerticalAlignment="Bottom" Width="140" FontSize="12" Content="Применить" Click="loadGameButton_Click"/>
+		<Border Name="GraphBorder" BorderBrush="Black" BorderThickness="1" Margin="10,10,200,145">
 			<lvc:CartesianChart x:Name="MainChart" 
                                 Series="{Binding SeriesCollection}" 
                                 LegendLocation="Bottom"  
                                 DisableAnimations="True">
 				<lvc:CartesianChart.AxisY>
-					<lvc:Axis x:Name="yAxis" Title="Расстояние (см.)"  ></lvc:Axis>
+					<lvc:Axis x:Name="yAxis" Title="Погрешность (∆T)"  ></lvc:Axis>
 				</lvc:CartesianChart.AxisY>
 				<lvc:CartesianChart.AxisX>
-					<lvc:Axis x:Name="xAxis" Title="Время (сек.)"  ></lvc:Axis>
+					<lvc:Axis x:Name="xAxis" Title="Сопротивление (Ом)"  ></lvc:Axis>
 				</lvc:CartesianChart.AxisX>
 			</lvc:CartesianChart>
 		</Border>
-		<TextBox x:Name="Counter" HorizontalAlignment="Left" Height="40" Margin="445,550,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="21.333" TextAlignment="Center" Text="0"/>
-		<TextBlock HorizontalAlignment="Left" Margin="308,556,0,0" TextWrapping="Wrap" Text="Умножитель:" VerticalAlignment="Top" FontSize="21.333"/>
+		<TextBox x:Name="FnText" HorizontalAlignment="Left" Height="20" Margin="650,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="1380"/>
+		<TextBlock Margin="0,12,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="Fп:" TextAlignment="Right"/>
+		<TextBox x:Name="FiTnText" HorizontalAlignment="Left" Height="20" Margin="650,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,5"/>
+		<TextBlock Margin="0,36,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="φТп):" TextAlignment="Right"/>
+		<TextBox x:Name="AnText" HorizontalAlignment="Left" Height="20" Margin="650,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,7"/>
+		<TextBlock Margin="0,61,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="Aп:" TextAlignment="Right"/>
+		<TextBox x:Name="aTText" HorizontalAlignment="Left" Height="20" Margin="650,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="61,6"/>
+		<TextBlock Margin="0,86,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="αT:" TextAlignment="Right"/>
+		<TextBox x:Name="FiTzText" HorizontalAlignment="Left" Height="20" Margin="650,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,5"/>
+		<TextBlock Margin="0,111,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="φTз:" TextAlignment="Right"/>
+		<TextBox x:Name="FozText" HorizontalAlignment="Left" Height="20" Margin="650,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="347,3"/>
+		<TextBlock Margin="0,136,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="Foз:" TextAlignment="Right"/>
+		<TextBox x:Name="ATozText" HorizontalAlignment="Left" Height="20" Margin="650,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,7"/>
+		<TextBlock Margin="0,161,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="AToз:" TextAlignment="Right"/>
+		<TextBox x:Name="FdzText" HorizontalAlignment="Left" Height="20" Margin="650,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="234"/>
+		<TextBlock Margin="0,186,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="F∂з:" TextAlignment="Right"/>
+		<TextBox x:Name="ATdzText" HorizontalAlignment="Left" Height="20" Margin="650,210,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,9"/>
+		<TextBlock Margin="0,211,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="AT∂з:" TextAlignment="Right"/>
+		<TextBox x:Name="FiTKText" HorizontalAlignment="Left" Height="20" Margin="650,235,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,067"/>
+		<TextBlock Margin="0,236,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="φTK:" TextAlignment="Right"/>
+		<TextBox x:Name="FPOKText" HorizontalAlignment="Left" Height="20" Margin="650,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="963"/>
+		<TextBlock Margin="0,261,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="FPOK:" TextAlignment="Right"/>
+		<TextBox x:Name="ATPOKText" HorizontalAlignment="Left" Height="20" Margin="650,285,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,7"/>
+		<TextBlock Margin="0,286,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="40" Text="ATPOK:" TextAlignment="Right"/>
+		<TextBox x:Name="FOOKText" HorizontalAlignment="Left" Height="20" Margin="650,310,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="242,2"/>
+		<TextBlock Margin="0,311,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="FOOK:" TextAlignment="Right"/>
+		<TextBox x:Name="ATOOKText" HorizontalAlignment="Left" Height="20" Margin="650,335,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,7"/>
+		<TextBlock Margin="0,336,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="47" Text="ATOOK:" TextAlignment="Right"/>
+		<TextBox x:Name="FdKText" HorizontalAlignment="Left" Height="20" Margin="650,360,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="272"/>
+		<TextBlock Margin="0,361,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="F∂K:" TextAlignment="Right"/>
+		<TextBox x:Name="ATdKText" HorizontalAlignment="Left" Height="20" Margin="650,385,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,9"/>
+		<TextBlock Margin="0,386,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="AT∂K:" TextAlignment="Right"/>
+		<TextBox x:Name="STText" HorizontalAlignment="Left" Height="20" Margin="650,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,000076"/>
+		<TextBlock Margin="0,411,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="ST:" TextAlignment="Right"/>
+		<TextBox x:Name="IText" HorizontalAlignment="Left" Height="20" Margin="650,435,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,0008"/>
+		<TextBlock Margin="0,436,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="I:" TextAlignment="Right"/>
+		<Image HorizontalAlignment="Left" Height="51" Margin="10,494,0,0" VerticalAlignment="Top" Width="780" Source="/DiplomSainaMaximova;component/img/Снимок.PNG"/>
 	</Grid>
 </UserControl>

@@ -113,7 +113,7 @@ namespace WPFPageSwitch
                 {
                     if (radioButtonGroup[i][j].IsChecked == true)
                     {
-                        if (questions[i].CorrectAnswer == j)
+                        if (questions[i].CorrectAnswer - 1 == j)
                         {
                             questionsTrue++;
                         }
@@ -128,7 +128,7 @@ namespace WPFPageSwitch
                 text = "Имя: " + User.Name + " Группа: " + User.Group + "\nПравильных ответов:\n " + questionsTrue;
             }
             else
-                text = "Имя: " + User.Name + " Группа: " + User.Group + "\nПравильных ответов:\n " + questionsTrue + "\n<color=red>Вы не прошли тест!</color>";
+                text = "Имя: " + User.Name + " Группа: " + User.Group + "\nПравильных ответов:\n " + questionsTrue + "\nВы не прошли тест!";
 
             Switcher.Switch(new LoadGame(won, text));
         }
