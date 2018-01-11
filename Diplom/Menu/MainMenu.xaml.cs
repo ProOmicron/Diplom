@@ -84,19 +84,23 @@ namespace WPFPageSwitch
             float RT = 0;
             float ST = float.Parse(STText.Text);
             float I = float.Parse(IText.Text);
+            float eT = float.Parse(eTText.Text);
+            float CigO = float.Parse(CigOText.Text);
+            float TT = float.Parse(TTText.Text);
 
             for (int i = 1000; i < 220000; i += 1000)
             {
                 RT = i;
                 UT = I * RT;
 
-                list.Add(
+                list.Add(Math.Round(
                     +((Fn * FiTn * (1 - An)) / aT) 
                     +((FiTz * ((Foz * (1 - AToz)) + (Fdz * (1 - ATdz)))) / aT) 
                     +((FiTK * ((FPOK * (1 - ATPOK)) + (FOOK * (1 - ATOOK)) + (FdK * (1 - ATdK)))) / aT)
                     +((UT * UT) / (RT * aT * ST)) 
                     -(5.36f * Math.Pow(10, -2))
-                    );
+                    +((eT * CigO * TT * TT * TT) / aT)
+                    , 2));
 
                 listx.Add(i.ToString() + " (Ом)");
             }
@@ -105,7 +109,7 @@ namespace WPFPageSwitch
             ChartValues<double> chart = new ChartValues<double>(list);
             
             LineSeries ls = new LineSeries();
-            ls.Title = "Зависимость погрешности от сопротивления";
+            ls.Title = "∆T (°C)";
             ls.Values = chart;
             ls.PointGeometry = null;
             SeriesCollection.Add(ls);            
@@ -113,7 +117,7 @@ namespace WPFPageSwitch
 
             xAxis.Labels = listx;
             xAxis.Title = "Сопротивление (Ом)";
-            yAxis.Title = "Погрешность (∆T)";
+            yAxis.Title = "Погрешность (°C)";
         }
 
         
