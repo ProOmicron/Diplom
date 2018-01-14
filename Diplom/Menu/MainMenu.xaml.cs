@@ -21,6 +21,9 @@ namespace WPFPageSwitch
         public SeriesCollection SeriesCollection { get; set; }
         public ChartValues<float> MyValues { get; private set; }
 
+        List<double> list = new List<double>();
+        List<string> listx = new List<string>();
+
         public MainMenu()
 		{            
 			InitializeComponent();
@@ -62,8 +65,8 @@ namespace WPFPageSwitch
 
         private void GarphMain()
         {
-            List<double> list = new List<double>();
-            List<string> listx = new List<string>();
+            list.Clear();
+            listx.Clear();
             float Fn = float.Parse(FnText.Text);
             float FiTn = float.Parse(FiTnText.Text);
             float An = float.Parse(AnText.Text);
@@ -81,28 +84,45 @@ namespace WPFPageSwitch
             float FdK = float.Parse(FdKText.Text);
             float ATdK = float.Parse(ATdKText.Text);
             float UT = 0;
-            float RT = 0;
+            float RT = float.Parse(RTText.Text);
             float ST = float.Parse(STText.Text);
             float I = float.Parse(IText.Text);
             float eT = float.Parse(eTText.Text);
             float CigO = float.Parse(CigOText.Text);
             float TT = float.Parse(TTText.Text);
+            float a1 = float.Parse(A1Text.Text);
 
-            for (int i = 1000; i < 220000; i += 1000)
+            float lyam = 0;
+            float r = 0;
+            float e1 = 0;
+            float Tb = 0;
+            float N1 = 0;
+            
+
+            for (int i = -60; i < 70; i++)
             {
-                RT = i;
+                TT = i + 273.15f;
                 UT = I * RT;
-
                 list.Add(Math.Round(
-                    +((Fn * FiTn * (1 - An)) / aT) 
-                    +((FiTz * ((Foz * (1 - AToz)) + (Fdz * (1 - ATdz)))) / aT) 
-                    +((FiTK * ((FPOK * (1 - ATPOK)) + (FOOK * (1 - ATOOK)) + (FdK * (1 - ATdK)))) / aT)
-                    +((UT * UT) / (RT * aT * ST)) 
-                    -(5.36f * Math.Pow(10, -2))
-                    +((eT * CigO * TT * TT * TT) / aT)
+                    +((Fn * FiTn * (1 - An)) / aT)
+                    + ((FiTz * ((Foz * (1 - AToz)) + (Fdz * (1 - ATdz)))) / aT)
+                    + ((FiTK * ((FPOK * (1 - ATPOK)) + (FOOK * (1 - ATOOK)) + (FdK * (1 - ATdK)))) / aT)
+                    + ((UT * UT) / (RT * aT * ST))
+                    - (5.36f * Math.Pow(10, -2))
+                    + ((eT * CigO * TT * TT * TT * TT) / a1)
                     , 2));
 
-                listx.Add(i.ToString() + " (Ом)");
+                //list.Add(TT - Math.Round(
+                //    TT
+                //    - ((Fn * FiTn * (1 - An)) / aT)
+                //    - ((FiTz * ((Foz * (1 - AToz)) + (Fdz * (1 - ATdz)))) / aT)
+                //    - ((FiTK * ((FPOK * (1 - ATPOK)) + (FOOK * (1 - ATOOK)) + (FdK * (1 - ATdK)))) / aT)
+                //    - ((UT * UT) / (RT * aT * ST))
+                //    + (5.36f * Math.Pow(10, -2))
+                //    - ((eT * CigO * TT * TT * TT * TT) / a1)
+                //    , 2));
+
+                listx.Add(i.ToString() + " (°C)");
             }
             
 
@@ -116,7 +136,7 @@ namespace WPFPageSwitch
             DataContext = this;
 
             xAxis.Labels = listx;
-            xAxis.Title = "Сопротивление (Ом)";
+            xAxis.Title = "Температура (°C)";
             yAxis.Title = "Погрешность (°C)";
         }
 
@@ -131,6 +151,11 @@ namespace WPFPageSwitch
         private void backButton_Click(object sender, RoutedEventArgs e)
         {
             Switcher.Switch(new MainMenu());
+        }
+
+        private void saveButton_Click(object sender, RoutedEventArgs e)
+        {
+            Switcher.Switch(new Register(list, listx));
         }
     }
 }

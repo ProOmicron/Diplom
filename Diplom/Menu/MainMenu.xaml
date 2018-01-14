@@ -8,10 +8,11 @@
 	x:Class="WPFPageSwitch.MainMenu"
 	d:DesignWidth="800" d:DesignHeight="600">
 	<Grid x:Name="mainMenuLayoutRoot" Background="White">
-		<Button x:Name="newGameButton" HorizontalAlignment="Left" Margin="10,0,0,10" VerticalAlignment="Bottom" Width="140" Content="Начать заново" Height="20" FontSize="12" Click="newGameButton_Click"/>
-		<Button x:Name="backButton" HorizontalAlignment="Left" Margin="505,0,0,10" VerticalAlignment="Bottom" Width="140" Content="Отменить" Height="20" FontSize="12" Click="backButton_Click"/>
-		<Button x:Name="loadGameButton" Height="20" HorizontalAlignment="Left" Margin="650,0,0,10" VerticalAlignment="Bottom" Width="140" FontSize="12" Content="Применить" Click="loadGameButton_Click"/>
-		<Border Name="GraphBorder" BorderBrush="Black" BorderThickness="1" Margin="10,10,200,145">
+		<Button x:Name="newGameButton" HorizontalAlignment="Left" Margin="10,0,0,20" VerticalAlignment="Bottom" Width="110" Content="Начать заново" Height="20" FontSize="12" Click="newGameButton_Click"/>
+		<Button x:Name="backButton" HorizontalAlignment="Left" Margin="375,0,0,20" VerticalAlignment="Bottom" Width="110" Content="Отменить" Height="20" FontSize="12" Click="backButton_Click"/>
+		<Button x:Name="saveButton" HorizontalAlignment="Left" Margin="125,0,0,20" VerticalAlignment="Bottom" Width="110" Content="Завершить" Height="20" FontSize="12" Click="saveButton_Click"/>
+		<Button x:Name="loadGameButton" Height="20" HorizontalAlignment="Left" Margin="490,0,0,20" VerticalAlignment="Bottom" Width="110" FontSize="12" Content="Применить" Click="loadGameButton_Click"/>
+		<Border Name="GraphBorder" BorderBrush="Black" BorderThickness="1" Margin="10,10,200,82">
 			<lvc:CartesianChart x:Name="MainChart" 
                                 Series="{Binding SeriesCollection}" 
                                 LegendLocation="Bottom"  
@@ -67,9 +68,16 @@
 		<TextBox x:Name="CigOText" HorizontalAlignment="Left" Height="20" Margin="650,485,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,000000055"/>
 		<TextBlock Margin="0,486,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="σ0:" TextAlignment="Right"/>
 
-		<TextBox x:Name="TTText" HorizontalAlignment="Left" Height="20" Margin="650,510,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="-43,15"/>
+		<TextBox x:Name="TTText" HorizontalAlignment="Left" Height="20" Margin="650,510,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="230"/>
 		<TextBlock Margin="0,511,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="Tт:" TextAlignment="Right"/>
-		
-		<Image HorizontalAlignment="Left" Height="45" Margin="10,500,0,0" VerticalAlignment="Top" Width="590" Source="/DiplomSainaMaximova;component/img/Снимок.PNG"/>
+
+
+		<TextBox x:Name="RTText" HorizontalAlignment="Left" Height="20" Margin="650,535,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="13000"/>
+		<TextBlock Margin="0,536,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="Rт:" TextAlignment="Right"/>
+
+		<TextBox x:Name="A1Text" HorizontalAlignment="Left" Height="20" Margin="650,560,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="40,1"/>
+		<TextBlock Margin="0,561,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="α1:" TextAlignment="Right"/>
+
+		<Image HorizontalAlignment="Left" Height="32" Margin="10,523,0,0" VerticalAlignment="Top" Width="590" Source="/DiplomSainaMaximova;component/img/Снимок.PNG" RenderTransformOrigin="0.499,0.511"/>
 	</Grid>
 </UserControl>

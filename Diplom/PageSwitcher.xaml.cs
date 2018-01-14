@@ -13,8 +13,8 @@ namespace WPFPageSwitch
         {
             InitializeComponent();
             Switcher.pageSwitcher = this;
-            Switcher.Switch(new MainMenu());
-            //Switcher.Switch(new Login());
+            //Switcher.Switch(new MainMenu());
+            Switcher.Switch(new Login());
         }
 
         public void Navigate(UserControl nextPage)

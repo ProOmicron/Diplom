@@ -10,5 +10,6 @@ namespace WPFPageSwitch
         public static string Name { get; set; }
         public static string Group { get; set; }
         public static int Count { get; set; }
+        public static int CountTrue { get; set; }
     }
 }

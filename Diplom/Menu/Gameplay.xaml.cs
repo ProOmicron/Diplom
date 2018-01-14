@@ -23,11 +23,11 @@ namespace WPFPageSwitch
 		{
 			InitializeComponent();
             NameGroup.Text = "Имя: " + User.Name + " Группа: " + User.Group;
-            ImportFootLog();
+            Import();
             CreateQuiz();
         }
 
-        private void ImportFootLog()
+        private void Import()
         {
             using (var fs = File.OpenRead("log.csv"))
             {
@@ -104,8 +104,8 @@ namespace WPFPageSwitch
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            int questionsCount = questions.Count;
-            int questionsTrue = 0;
+            float questionsCount = questions.Count;
+            float questionsTrue = 0;
 
             for (int i = 0; i < questions.Count; i++)
             {
@@ -122,13 +122,15 @@ namespace WPFPageSwitch
             }
             bool won = false;
             string text = "";
-            if (questionsTrue / questionsCount >= 0.8f)
+            if (questionsTrue / questionsCount >=  0.8f)
             {
                 won = true;
-                text = "Имя: " + User.Name + " Группа: " + User.Group + "\nПравильных ответов:\n " + questionsTrue;
+                User.Count = (int)questionsCount;
+                User.CountTrue = (int)questionsTrue;
+                text = "Имя: " + User.Name + " Группа: " + User.Group + "\nПравильных ответов:\n " + User.CountTrue + " из " + User.Count + "\nВы прошли тест!";
             }
             else
-                text = "Имя: " + User.Name + " Группа: " + User.Group + "\nПравильных ответов:\n " + questionsTrue + "\nВы не прошли тест!";
+                text = "Имя: " + User.Name + " Группа: " + User.Group + "\nПравильных ответов:\n " + questionsTrue + "из " + questionsCount + "\nВы не прошли тест!";
 
             Switcher.Switch(new LoadGame(won, text));
         }
