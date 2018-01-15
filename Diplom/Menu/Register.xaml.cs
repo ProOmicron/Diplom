@@ -61,8 +61,7 @@ namespace WPFPageSwitch
             mail.Attachments.Add(new Attachment("graph.png"));
 
             SendMailMessage(mail);
-
-            
+            System.Windows.Application.Current.Shutdown();
         }
 
         public void CaptureApplication()
@@ -76,9 +75,11 @@ namespace WPFPageSwitch
 
             bmp = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
             Graphics graphics = Graphics.FromImage(bmp);
-            graphics.CopyFromScreen(rect.left, rect.top, -20, -180, new System.Drawing.Size(790, 400), CopyPixelOperation.SourceCopy);
+            graphics.CopyFromScreen(rect.left, rect.top, 0, 0, new System.Drawing.Size(width, height), CopyPixelOperation.SourceCopy);
 
             bmp.Save("graph.png", ImageFormat.Png);
+
+
         }
 
         private class User32

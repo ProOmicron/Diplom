@@ -3,12 +3,25 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
 	mc:Ignorable="d"
 	x:Class="WPFPageSwitch.Option"
 	d:DesignWidth="640" d:DesignHeight="480" Width="800" Height="600">
 
 	<Grid x:Name="LayoutRoot" Background="White">
-		<TextBlock Height="40" HorizontalAlignment="Left" Margin="20,20,0,0" VerticalAlignment="Top" Width="200" Text="Option" TextWrapping="Wrap" FontSize="21.333"/>
-		<Button Height="25" HorizontalAlignment="Right" Margin="0,0,20,20" VerticalAlignment="Bottom" Width="100" Content="&lt; Back" Click="Button_Click"/>
+		<Button Height="25" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Width="100" Content="&lt; Back" Click="Button_Click"/>
+		<Border Name="GraphBorder" BorderBrush="Black" BorderThickness="1" Margin="10,10,10,40">
+			<lvc:CartesianChart x:Name="MainChart" 
+                                Series="{Binding SeriesCollection}" 
+                                LegendLocation="Bottom"  
+                                DisableAnimations="True" Margin="0,0,0,-1">
+				<lvc:CartesianChart.AxisY>
+					<lvc:Axis x:Name="yAxis" Title="Погрешность (∆T)"  ></lvc:Axis>
+				</lvc:CartesianChart.AxisY>
+				<lvc:CartesianChart.AxisX>
+					<lvc:Axis x:Name="xAxis" Title="Сопротивление (Ом)"  ></lvc:Axis>
+				</lvc:CartesianChart.AxisX>
+			</lvc:CartesianChart>
+		</Border>
 	</Grid>
 </UserControl>

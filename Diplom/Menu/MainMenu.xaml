@@ -57,10 +57,10 @@
 		<TextBlock Margin="0,361,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="F∂K:" TextAlignment="Right"/>
 		<TextBox x:Name="ATdKText" HorizontalAlignment="Left" Height="20" Margin="650,385,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,9"/>
 		<TextBlock Margin="0,386,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="Aт,∂K:" TextAlignment="Right"/>
-		<TextBox x:Name="STText" HorizontalAlignment="Left" Height="20" Margin="650,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,000076"/>
-		<TextBlock Margin="0,411,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="Sт:" TextAlignment="Right"/>
-		<TextBox x:Name="IText" HorizontalAlignment="Left" Height="20" Margin="650,435,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,0007"/>
-		<TextBlock Margin="0,436,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="I:" TextAlignment="Right"/>
+		<TextBox x:Name="STText" HorizontalAlignment="Left" Height="20" Margin="650,410,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="390"/>
+		<TextBlock Margin="0,411,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="λ:" TextAlignment="Right"/>
+		<TextBox x:Name="IText" HorizontalAlignment="Left" Height="20" Margin="650,435,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,1"/>
+		<TextBlock Margin="0,436,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" TextAlignment="Right"><Run Text="ε"/><Run Text="1"/><Run Text=":"/></TextBlock>
 
 		<TextBox x:Name="eTText" HorizontalAlignment="Left" Height="20" Margin="650,460,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,1"/>
 		<TextBlock Margin="0,461,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="εт:" TextAlignment="Right"/>
@@ -72,8 +72,8 @@
 		<TextBlock Margin="0,511,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="Tт:" TextAlignment="Right"/>
 
 
-		<TextBox x:Name="RTText" HorizontalAlignment="Left" Height="20" Margin="650,535,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="13000"/>
-		<TextBlock Margin="0,536,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="Rт:" TextAlignment="Right"/>
+		<TextBox x:Name="RTText" HorizontalAlignment="Left" Height="20" Margin="650,535,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="0,0003"/>
+		<TextBlock Margin="0,536,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="r:" TextAlignment="Right"/>
 
 		<TextBox x:Name="A1Text" HorizontalAlignment="Left" Height="20" Margin="650,560,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="140" FontSize="12" TextAlignment="Center" Text="40,1"/>
 		<TextBlock Margin="0,561,155,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="12" HorizontalAlignment="Right" Width="35" Text="α1:" TextAlignment="Right"/>
